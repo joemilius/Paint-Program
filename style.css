@@ -26,14 +26,21 @@
     width: 20%;
     
 }
-#canvas{
-    /* background-color: lightskyblue; */
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 80%;
+body{
+    padding: 0px;
 }
+#canvas{
+    display: block;
+    /* background-color: lightskyblue; */
+    margin: auto;
+    /* width: 100%;
+    height: 80%; */
+    border: 2px solid black;
+}
+#canvas:hover{
+    cursor: url("paint-brush.png"), crosshair;
+}
+
 button img{
     height:100%;
     width:100%;
