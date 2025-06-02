@@ -1,5 +1,7 @@
 let canvas = document.getElementById('canvas')
 let ctx = canvas.getContext('2d')
+let penButton = document.getElementById('pen-button')
+let paintButton = document.getElementById('paint-button')
 console.log(ctx)
 canvas.width = 800
 canvas.height = 600
@@ -36,8 +38,16 @@ let isDrawing = false;
             ctx.moveTo(prevMouseX , prevMouseY); // Move to the current mouse position
             ctx.lineTo(e.offsetX , e.offsetY); // Draw a line to the current mouse position
             ctx.stroke(); // Stroke the line
-            prevMouseX = e.offsetX 
-            prevMouseY = e.offsetY 
+            prevMouseX = e.offsetX //Set the coordinates for the next position to draw the line
+            prevMouseY = e.offsetY //Set the coordinates for the next position to draw the line
             
         }
     });
+
+    paintButton.addEventListener('click', (e) => {
+        canvas.className = "paint"
+    })
+
+    penButton.addEventListener('click', (e) => {
+        canvas.className = "pen"
+    })
