@@ -2,6 +2,8 @@ let canvas = document.getElementById('canvas')
 let ctx = canvas.getContext('2d')
 let penButton = document.getElementById('pen-button')
 let paintButton = document.getElementById('paint-button')
+let thicknessButtons = document.getElementsByName("line-size")
+console.log(thicknessButtons)
 console.log(ctx)
 canvas.width = 800
 canvas.height = 600
@@ -14,7 +16,7 @@ let prevMouseY
 
 
 let isDrawing = false;
-
+// Event Listener to Start Drawing
     canvas.addEventListener('mousedown', (e) => {
         console.log(e)
         console.log("begin")
@@ -24,16 +26,16 @@ let isDrawing = false;
         ctx.beginPath(); // Start a new path
         ctx.moveTo(prevMouseX , prevMouseY ); // Move to the starting point
     });
-
+// Event Listener to Stop Drawing
     canvas.addEventListener('mouseup', () => {
         console.log("stop")
         isDrawing = false;
     });
-
+// Event Listener to Make the Line
     canvas.addEventListener('mousemove', (e) => {
         
         if (isDrawing) {
-            console.log("make line")
+            console.log(ctx.lineWidth)
             ctx.beginPath(); // Start a new path
             ctx.moveTo(prevMouseX , prevMouseY); // Move to the current mouse position
             ctx.lineTo(e.offsetX , e.offsetY); // Draw a line to the current mouse position
@@ -50,4 +52,17 @@ let isDrawing = false;
 
     penButton.addEventListener('click', (e) => {
         canvas.className = "pen"
+    })
+// Event Listener to Recognize Line Thickness Choice
+
+    thicknessButtons.forEach((button) => {
+        button.addEventListener("click", (e) => {
+            if (e.target.value === "thin"){
+                ctx.lineWidth = 1
+            }else if (e.target.value === "medium"){
+                ctx.lineWidth = 5
+            }else if (e.target.value === "thick"){
+                ctx.lineWidth = 10
+            }
+        })
     })
