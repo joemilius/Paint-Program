@@ -3,6 +3,8 @@ let ctx = canvas.getContext('2d')
 let penButton = document.getElementById('pen-button')
 let paintButton = document.getElementById('paint-button')
 let thicknessButtons = document.getElementsByName("line-size")
+let lineColorInput = document.getElementsByName('line-color')[0]
+console.log(lineColorInput)
 console.log(thicknessButtons)
 console.log(ctx)
 canvas.width = 800
@@ -65,4 +67,8 @@ let isDrawing = false;
                 ctx.lineWidth = 10
             }
         })
+    })
+
+    lineColorInput.addEventListener("input", (e) => {
+        console.log(e.target.value)
     })
