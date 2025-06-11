@@ -70,5 +70,5 @@ let isDrawing = false;
     })
 
     lineColorInput.addEventListener("input", (e) => {
-        console.log(e.target.value)
+        console.log(lineColorInput.value)
     })
