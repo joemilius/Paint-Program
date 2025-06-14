@@ -69,6 +69,7 @@ let isDrawing = false;
         })
     })
 
-    lineColorInput.addEventListener("input", (e) => {
+    lineColorInput.addEventListener("change", (e) => {
         console.log(lineColorInput.value)
+        ctx.strokeStyle = `${lineColorInput.value}`
     })
